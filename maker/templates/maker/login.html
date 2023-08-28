@@ -1,0 +1,32 @@
+{% extends "maker/layout.html" %}
+
+{% block body %}
+
+<div class="main-table">
+
+    <h2>Login</h2>
+
+    {% if message %}
+    <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input autofocus class="text-input"
+                   type="text" name="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input  type="password" class="text-input"
+                   name="password" placeholder="Password">
+        </div>
+        <input class="btn btn-primary" type="submit" value="Login">
+    </form>
+
+    <p></p>
+
+    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+</div>
+
+
+{% endblock %}

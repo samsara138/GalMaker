@@ -1,0 +1,26 @@
+{% extends "maker/layout.html" %}
+
+{% block page_title %}
+Game Editor
+{% endblock %}
+
+{% block body %}
+<div class="main-table">
+    <a href="{% url 'create_new_game' %}"><h5>Create a new game</h5></a>
+
+    <p></p>
+
+    <h5>Edit existing game</h5>
+    <ul>
+        {% for game in games %}
+        <li class="dotless">
+            <a href="editor/{{game.id}}">{{ game }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+{% endblock %}
+
+
+

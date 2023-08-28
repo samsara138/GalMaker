@@ -1,0 +1,37 @@
+{% extends "maker/layout.html" %}
+{% load static %}
+
+{% block page_title %}
+<h3> {{ game_obj.name }} </h3>
+{% endblock %}
+
+{% block body %}
+
+<input type="hidden" id="gameID" value="{{game_obj.id}}">
+<input type="hidden" id="nodeID" value="{{node_obj.ingame_id}}">
+
+<div class="node_render_div">
+  <img class="background" id="backgroundImg">
+  <img class="left_char" id="leftCharImg" style="display: None">
+  <img class="right_char" id="rightCharImg" style="display: None">
+
+  <button id="btn1" class="option1"> Button 1</button>
+  <button id="btn2" class="option2"> Button 2</button>
+  <button id="nextBtn" class="nextBtn"> Next </button>
+
+  <div class="dialog_box">
+    <b><p class="speaker" id="speakerP">Speaker</p></b>
+    <p class="message" id="textP">Text</p>
+    <div class="transparent"></div>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'maker/game/game_render.js' %}" type="text/javascript"></script>
+<script src="{% static 'maker/game/game_elements.js' %}" type="text/javascript"></script>
+<script src="{% static 'maker/game/game_state_manager.js' %}" type="text/javascript"></script>
+<script src="{% static 'maker/game/game_animator.js' %}" type="text/javascript"></script>
+{% endblock %}

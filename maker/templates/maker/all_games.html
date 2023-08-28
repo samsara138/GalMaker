@@ -1,0 +1,20 @@
+{% extends "maker/layout.html" %}
+{% load static %}
+
+{% block page_title %}
+<h3> All Games </h3>
+{% endblock %}
+
+{% block body %}
+<div class="main-table">
+    <h5>Play a game</h5>
+    <ul>
+        {% for game_obj in game_objects %}
+
+        <li class="dotless">
+            <a href="{% url 'game_view' game_id=game_obj.id %}">{{ game_obj.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
